@@ -6,6 +6,9 @@ import {
 import HomeLayout from "../Layouts/HomeLayout";
 import Error from "../Components/Error";
 import News from "../Components/Pages/News";
+import Authlayout from "../Components/AuthLayout/Authlayout";
+import Login from "../Components/AuthLayout/Login";
+import Register from "../Components/AuthLayout/Register";
 
 const router = createBrowserRouter([
     {
@@ -25,8 +28,18 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: "/news",
-        element: <h2>news</h2>
+        path: "/auth",
+        element: <Authlayout></Authlayout>,
+        children:[
+            {
+                path: "/auth/login",
+                element: <Login></Login>
+            },
+            {
+                path: "/auth/register",
+                element: <Register></Register>
+            }
+        ]
     }
 ]);
 
